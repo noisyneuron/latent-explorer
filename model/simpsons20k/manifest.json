@@ -1,0 +1,6 @@
+{
+    "description": "simpsons",
+    "model": "model/simpsons20k/model.json",
+    "modelSize": 256,
+    "modelLatentDim": 128
+}
