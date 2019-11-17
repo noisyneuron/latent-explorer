@@ -4,9 +4,11 @@ let z = [];
 let butts = [];
 let INC_AMT = 0.01;
 let bRandomize, bInvert, bSelectAll, bDeselectAll, bInput;
+let loading = true;
 
 function preload() {
     dcgan = ml5.DCGAN('model/simpsons20k/manifest.json');
+    console.log('loaded?');
 }
 
 function setup() {
@@ -69,10 +71,15 @@ function displayImage(err, result) {
         return;
     }
     image(result.image, 0, 0, 600, 600);
+    if(loading) { loading = false; }
 }
 
 
 function draw() {
+  if(loading){
+    strokeWeight(1);
+    text('LOADING MODEL.....', 300, 300);
+  }
   for(let i=0; i<128; i++) {
     butts[i].draw();
   }
